@@ -21,6 +21,7 @@
   "homepage": "https://github.com/TheOmegaBlack/Chingu-TeamBear6#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "wayt-frontend": "chingu-voyage4/Bears-Team-6#develop",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
