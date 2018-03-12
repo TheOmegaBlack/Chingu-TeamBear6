@@ -1,12 +1,23 @@
+/* eslint no-console: 0 */
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1/WeAreYourTeam')
+const dbURI = process.env.DB_URI
+
+mongoose.connect(dbURI)
 
 mongoose.Promise = Promise
 
 const db = mongoose.connection
 
-// Bind connection to error event (to get notification of connection errors)
+db.on('connected', () => {
+  console.log('MongoDB connection connected to ' + dbURI)
+})
 
-// eslint-disable-next-line no-console
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+db.on('disconnected', () => {
+  console.log('MongoDB connection disconnected')
+})
+
+db.on('error', (err) => {
+  console.error('MongoDB connection error. Please try to start/restart your MongoDB')
+  process.exit(1)
+})
