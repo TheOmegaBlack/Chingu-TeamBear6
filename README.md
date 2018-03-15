@@ -33,7 +33,19 @@ Do we need this section?
 
 ## API
 
-Info about the routes
+(as of Sprint 1)
+
+* `/api`
+  * `/auth/local-login`
+    * POST - Logs in a user using email and password
+  * `/auth/register`
+    * POST - Registers a new user
+  * `/users` (protected)
+    * GET - Gets a list of all users
+    * POST - Creates a new user (do we still need this?)
+  * `/users/:id` (protected)
+    * GET - Gets a user with the specified ID
+    * PUT - Updates a user with the specified ID
 
 ## Usage
 
