@@ -49,7 +49,29 @@ Do we need this section?
 
 ## Usage
 
-npm scripts, what they do, etc.
+### `npm start`
+
+Starts the server on port 3000, or on the value specified by the `PORT` environment variable.
+
+### `npm run dev`
+
+Same as `npm start`, but the server is launched using nodemon.
+
+### `npm run eslint`
+
+Runs ESLint on the files (except those in the `static` directory).
+
+### `npm run eslint:fix`
+
+Runs ESLint with the `--fix` flag.
+
+### `npm test`
+
+Runs mocha on the `tests` directory.
+
+### `npm postinstall`
+
+Builds the front-end in the `static` directory.
 
 ## Probably stuff from the wiki/workflow/guidelines/etc
 
