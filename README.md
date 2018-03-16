@@ -79,7 +79,13 @@ How to, etc.
 
 ## Application stack
 
-Application stack
+* React
+* Redux
+* Express
+* Mongoose
+* Socket.io
+* Flow
+* Jest + Mocha
 
 ## Team Members
 
