@@ -6,7 +6,13 @@ Backend repository for https://github.com/chingu-voyage4/Bears-Team-6
 
 ## Table of Contents
 
-TOC
+* [Prerequisites](#prerequisites)
+* [Project structure](#project-structure)
+* [API](#api)
+* [Usage](#usage)
+* [Probably stuff from the wiki/workflow/guidelines/etc](#probably-stuff-from-the-wikiworkflowguidelinesetc)
+* [Application stack](#application-stack)
+* [Team members](#team-members)
 
 ## Prerequisites
 
