@@ -89,4 +89,8 @@ How to, etc.
 
 ## Team Members
 
-Us!
+* [Sacha Morgese](https://github.com/TheOmegaBlack) (Project Manager)
+* [Vladimir Logachev](https://github.com/VladimirLogachev)
+* [Nguyễn Thế Tùng](https://github.com/tungnt-580)
+* [Michael Alegrado](https://github.com/mikeale03)
+* [Kev Comedia](https://github.com/kevcomedia)
