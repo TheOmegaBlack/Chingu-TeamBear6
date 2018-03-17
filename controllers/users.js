@@ -34,26 +34,20 @@ function update(req, res, next) {
     .catch((err) => next(err))
 }
 
-function setProfile(req, res, next) {
+function updateProfile(req, res, next) {
   const {
     name, email, password, geolocation,
   } = req.body
 
-  User.findByIdAndUpdate(req.user.id, {
-    set: {
-      name, email, password, geolocation,
-    },
-  })
-    .exec()
-    .then((user) => res.json(user))
-    .catch((err) => next(err))
+  req.user.set({
+    name, email, password, geolocation,
+  }).save()
+
+  res.json(req.user)
 }
 
 function getProfile(req, res, next) {
-  User.findById(req.user.id)
-    .exec()
-    .then((user) => res.json(user))
-    .catch((err) => next(err))
+  return res.json(req.user)
 }
 
 module.exports = {
@@ -61,6 +55,6 @@ module.exports = {
   create,
   read,
   update,
-  setProfile,
+  updateProfile,
   getProfile,
 }

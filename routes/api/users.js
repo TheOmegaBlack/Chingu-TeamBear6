@@ -9,7 +9,7 @@ router.route('/')
 
 router.route('/profile')
   .get(userController.getProfile)
-  .put(userController.setProfile)
+  .put(userController.updateProfile)
 
 router.route('/:id')
   .get(userController.read)
