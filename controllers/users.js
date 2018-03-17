@@ -34,9 +34,33 @@ function update(req, res, next) {
     .catch((err) => next(err))
 }
 
+function setProfile(req, res, next) {
+  const {
+    name, email, password, geolocation,
+  } = req.body
+
+  User.findByIdAndUpdate(req.user.id, {
+    set: {
+      name, email, password, geolocation,
+    },
+  })
+    .exec()
+    .then((user) => res.json(user))
+    .catch((err) => next(err))
+}
+
+function getProfile(req, res, next) {
+  User.findById(req.user.id)
+    .exec()
+    .then((user) => res.json(user))
+    .catch((err) => next(err))
+}
+
 module.exports = {
   index,
   create,
   read,
   update,
+  setProfile,
+  getProfile,
 }
