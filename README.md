@@ -1,7 +1,5 @@
 # WeAreYourTeam (backend)
 
-**DRAFT**
-
 Backend repository for https://github.com/chingu-voyage4/Bears-Team-6
 
 ## Table of Contents
