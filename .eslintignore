@@ -2,3 +2,5 @@
 
 # Ignore built files
 static/*
+# Ignore the front-end build
+Bears-Team-6/*
