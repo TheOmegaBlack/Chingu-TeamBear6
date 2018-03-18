@@ -1,7 +1,7 @@
 const io = require('socket.io')
 
 module.exports = (server) => {
-  const nsp = io(server).of('/websockets')
+  const nsp = io(server, { transports: ['websocket'], origins: '*:*' }).of('/websockets')
 
   // emit timestamp every 10 sec
   nsp.on('connection', () => {
