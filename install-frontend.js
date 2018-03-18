@@ -25,7 +25,7 @@ const codeLines = {
   cloneFresh: `git clone -b ${branchName} ${frontendGitUrl}`,
   moveRepo: {
     mac: `mv ./${dirName}/build ./static`,
-    windows: `move "${dirName}/build" "static"`,
+    windows: `move "${dirName}\\build/\\*.*" "static"`,
   },
 }
 
