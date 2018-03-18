@@ -5,7 +5,7 @@ const os = require('os')
 
 const frontendGitUrl = 'https://github.com/chingu-voyage4/Bears-Team-6.git'
 const dirName = 'Bears-Team-6'
-const branchName = 'current-sprint'
+const branchName = 'logout-#48' // 'current-sprint'
 
 const print = (str) => console.log(`${str}\n`)
 const printInfo = (str) => print(`   ... ${str}`)
@@ -15,11 +15,11 @@ const opSys = os.platform() === 'win32' ? 'windows' : 'mac'
 const codeLines = {
   removeRepo: {
     mac: 'rm -rf ./Bears-Team-6',
-    windows: 'del "Bears-Team-6"',
+    windows: 'del /S /Q Bears-Team-6',
   },
   removeBuild: {
     mac: 'rm -rf ./static',
-    windows: 'del "static"',
+    windows: 'del /S /Q  static',
   },
   cloneFresh: `git clone -b ${branchName} ${frontendGitUrl}`,
   moveRepo: {
