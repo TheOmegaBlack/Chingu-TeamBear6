@@ -15,7 +15,7 @@ const opSys = os.platform() === 'win32' ? 'windows' : 'mac'
 const codeLines = {
   removeRepo: {
     mac: 'rm -rf ./Bears-Team-6',
-    windows: 'del /S /Q Bears-Team-6',
+    windows: 'rmdir /S /Q Bears-Team-6',
   },
   removeBuild: {
     mac: 'rm -rf ./static',
