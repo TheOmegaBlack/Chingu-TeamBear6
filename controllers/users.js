@@ -42,8 +42,8 @@ function updateProfile(req, res, next) {
   req.user.set({
     name, email, password, geolocation,
   }).save()
-
-  res.json(req.user)
+    .then(() => res.json(req.user))
+    .catch(next)
 }
 
 function getProfile(req, res, next) {
