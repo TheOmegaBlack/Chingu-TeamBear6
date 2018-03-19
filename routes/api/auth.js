@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const authController = require('../../controllers/auth')
 
-router.route('/local-login')
+router.route('/login')
   .post(authController.localLogin)
 
 router.route('/register')
