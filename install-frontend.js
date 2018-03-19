@@ -6,7 +6,7 @@ const fs = require('fs')
 
 const frontendGitUrl = 'https://github.com/chingu-voyage4/Bears-Team-6.git'
 const dirName = 'Bears-Team-6'
-const branchName = 'logout-#48' // 'current-sprint'
+const branchName = 'current-sprint'
 
 const print = (str) => console.log(`${str}\n`)
 const printInfo = (str) => print(`   ... ${str}`)
