@@ -2,6 +2,7 @@
 
 const { execSync } = require('child_process')
 const os = require('os')
+const fs = require('fs')
 
 const frontendGitUrl = 'https://github.com/chingu-voyage4/Bears-Team-6.git'
 const dirName = 'Bears-Team-6'
@@ -15,31 +16,31 @@ const opSys = os.platform() === 'win32' ? 'windows' : 'mac'
 const codeLines = {
   removeRepo: {
     mac: 'rm -rf ./Bears-Team-6',
-    windows: 'del "Bears-Team-6"',
+    windows: 'rmdir /S /Q Bears-Team-6',
   },
   removeBuild: {
     mac: 'rm -rf ./static',
-    windows: 'del "static"',
+    windows: 'del /S /Q  "static"',
   },
   cloneFresh: `git clone -b ${branchName} ${frontendGitUrl}`,
   moveRepo: {
     mac: `mv ./${dirName}/build ./static`,
-    windows: `move "${dirName}/build" "static"`,
+    windows: `move "${dirName}\\build/\\*.*" "static"`,
   },
 }
-
-console.log(opSys)
-console.log(codeLines.removeRepo[opSys])
-console.log(codeLines.removeBuild[opSys])
-console.log(codeLines.moveRepo[opSys])
 
 // May not work on Windows OS. should be fixed
 
 const installFrontendScript = () => {
-  printInfo('Removing previous frontend repo')
-  execAndPrint(codeLines.removeRepo[opSys])
-  printInfo('Removing previous frontend build')
-  execAndPrint(codeLines.removeBuild[opSys])
+  if (fs.existsSync('Bears-Team-6')) {
+    console.log('here')
+    printInfo('Removing previous frontend repo')
+    execAndPrint(codeLines.removeRepo[opSys])
+  }
+  if (fs.existsSync('static')) {
+    printInfo('Removing previous frontend build')
+    execAndPrint(codeLines.removeBuild[opSys])
+  }
   printInfo('Cloning fresh frontend repo')
   execAndPrint(codeLines.cloneFresh)
   printInfo('Moving frontend')
