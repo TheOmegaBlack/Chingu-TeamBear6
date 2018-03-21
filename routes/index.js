@@ -1,18 +1,20 @@
 const express = require('express')
 const apiRoute = require('./api')
+const cors = require('cors')
 
 const router = express.Router()
 
-router.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:8080', 'http://localhost:3000', 'http://weareyourteam.herokuapp.com', 'http://dev-weareyourteam.herokuapp.com']
-  const { origin } = req.headers
-  if (allowedOrigins.indexOf(origin) > -1) {
-    res.header('Access-Control-Allow-Origin', origin)
-  }
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  next()
-})
+const allowedOrigins = ['http://localhost:8080', 'http://localhost:3000', 'http://weareyourteam.herokuapp.com', 'http://dev-weareyourteam.herokuapp.com']
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+}
 
-router.use('/api', apiRoute)
+router.use('/api', cors(corsOptions), apiRoute)
 
 module.exports = router
