@@ -14,3 +14,8 @@ const interestSeed = require('./interest.seed')
 Promise.all([interestSeed.populate()])
   .then(() => console.log('\nDone'))
   .then(() => mongoose.connection.close())
+  .catch((err) => {
+    console.error('Oops, something went wrong...')
+    console.error(err)
+    process.exit(1)
+  })
