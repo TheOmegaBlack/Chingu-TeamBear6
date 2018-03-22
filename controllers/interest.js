@@ -11,7 +11,7 @@ function create(req, res, next) {
   const { name } = req.body
 
   Interest.create({ name })
-    .then((interest) => res.json(interest))
+    .then((interest) => res.status(201).json(interest))
     .catch((err) => next(err))
 }
 
@@ -21,7 +21,10 @@ function read(req, res, next) {
   Interest.findById(id)
     .exec()
     .then((interest) => res.json(interest))
-    .catch((err) => res.sendStatus(400))
+    .catch((err) => {
+      err.status = 400
+      next(err)
+    })
 }
 
 function update(req, res, next) {
@@ -31,7 +34,24 @@ function update(req, res, next) {
   Interest.findByIdAndUpdate(id, { name }, { new: true })
     .exec()
     .then((interest) => res.json(interest))
-    .catch((err) => res.sendStatus(400))
+    .catch((err) => {
+      err.status = 400
+      next(err)
+    })
+}
+function remove(req, res, next) {
+  const { id } = req.params
+
+  Interest.findByIdAndRemove(id)
+    .exec()
+    .then((interest) => {
+      const message = `Interest: ${interest.name} is successfully deleted!`
+      res.json({ interest, message })
+    })
+    .catch((err) => {
+      err.status = 400
+      next(err)
+    })
 }
 
 function find(req, res, next) {
@@ -40,7 +60,10 @@ function find(req, res, next) {
   Interest.find({ name: regex })
     .exec()
     .then((interest) => res.json(interest))
-    .catch((err) => res.sendStatus(400))
+    .catch((err) => {
+      err.status = 400
+      next(err)
+    })
 }
 
 module.exports = {
@@ -48,5 +71,6 @@ module.exports = {
   create,
   read,
   update,
+  remove,
   find,
 }

@@ -10,6 +10,7 @@ router.route('/')
 router.route('/:id')
   .get(interestController.read)
   .put(interestController.update)
+  .delete(interestController.remove)
 
 router.route('/find/:name')
   .get(interestController.find)
