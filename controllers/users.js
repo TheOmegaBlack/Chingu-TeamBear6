@@ -11,7 +11,7 @@ function create(req, res, next) {
   const { name, email, password } = req.body
 
   User.create({ name, email, password })
-    .then((user) => res.json(user))
+    .then((user) => res.status(201).json(user))
     .catch((err) => next(err))
 }
 
@@ -35,13 +35,7 @@ function update(req, res, next) {
 }
 
 function updateProfile(req, res, next) {
-  const {
-    name, email, password, geolocation,
-  } = req.body
-
-  req.user.set({
-    name, email, password, geolocation,
-  }).save()
+  req.user.set(req.body).save()
     .then(() => res.json(req.user))
     .catch(next)
 }
