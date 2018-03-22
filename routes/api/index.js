@@ -2,13 +2,13 @@ const express = require('express')
 const passport = require('passport')
 const usersRoute = require('./users')
 const authRoute = require('./auth')
-const interestRoute = require('./interest')
+const interestRoute = require('./interests')
 
 const router = express.Router()
 
 router.use('/auth', authRoute)
 router.use('/users', passport.authenticate('jwt', { session: false }), usersRoute)
-router.use('/interest', passport.authenticate('jwt', { session: false }), interestRoute)
+router.use('/interests', passport.authenticate('jwt', { session: false }), interestRoute)
 
 router.use((req, res, next) => {
   const err = new Error('Not found')
