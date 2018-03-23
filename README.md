@@ -37,10 +37,10 @@ Do we need this section?
 
 ## API
 
-(as of Sprint 1)
+(as of Sprint 2)
 
 * `/api`
-  * `/auth/local-login`
+  * `/auth/login`
     * POST - Logs in a user using email and password
   * `/auth/register`
     * POST - Registers a new user
@@ -50,6 +50,18 @@ Do we need this section?
   * `/users/:id` (protected)
     * GET - Gets a user with the specified ID
     * PUT - Updates a user with the specified ID
+  * `/users/profile` (protected)
+    * GET - Gets the user profile data
+    * PUT - Update the user profile data
+  * `/interests` (protected)
+    * GET - Gets a list of all interest
+    * POST - Creates a new interest
+  * `/interests/:id` (protected)
+    * GET - Gets an interest with the specified ID
+    * PUT - Updates an interest with the specified ID
+    * DELETE - Delete an interest with the specified ID
+  * `/interests/find/:name` (protected)
+    GET - Get a list of interest that match the specified name
 
 ## Usage
 
