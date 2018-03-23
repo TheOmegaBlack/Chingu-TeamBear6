@@ -4,15 +4,15 @@ function index(req, res, next) {
   User.find({})
     .exec()
     .then((users) => res.json(users))
-    .catch((err) => next(err))
+    .catch(next)
 }
 
 function create(req, res, next) {
   const { name, email, password } = req.body
 
   User.create({ name, email, password })
-    .then((user) => res.json(user))
-    .catch((err) => next(err))
+    .then((user) => res.status(201).json(user))
+    .catch(next)
 }
 
 function read(req, res, next) {
@@ -21,7 +21,7 @@ function read(req, res, next) {
   User.findById(id)
     .exec()
     .then((user) => res.json(user))
-    .catch((err) => next(err))
+    .catch(next)
 }
 
 function update(req, res, next) {
@@ -31,17 +31,11 @@ function update(req, res, next) {
   User.findByIdAndUpdate(id, { name, email, password }, { new: true })
     .exec()
     .then((user) => res.json(user))
-    .catch((err) => next(err))
+    .catch(next)
 }
 
 function updateProfile(req, res, next) {
-  const {
-    name, email, password, geolocation,
-  } = req.body
-
-  req.user.set({
-    name, email, password, geolocation,
-  }).save()
+  req.user.set(req.body).save()
     .then(() => res.json(req.user))
     .catch(next)
 }
