@@ -9,8 +9,8 @@ const MeetingSchema = new Schema({
   description: String,
   address: String,
   geolocation: {
-    longtitude: Number,
-    latitute: Number,
+    longitude: Number,
+    latitude: Number,
   },
   contact: String,
 })
