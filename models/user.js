@@ -9,8 +9,8 @@ const UserSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   geolocation: {
-    longtitude: Number,
-    latitute: Number,
+    longitude: Number,
+    latitude: Number,
   },
   interests: [{
     interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
