@@ -41,7 +41,11 @@ function updateProfile(req, res, next) {
 }
 
 function getProfile(req, res, next) {
-  return res.json(req.user)
+  req.user.populate('interests.interest', (err, user) => {
+    if (err) return next(err)
+
+    return res.json(user)
+  })
 }
 
 module.exports = {

@@ -13,7 +13,7 @@ const UserSchema = new Schema({
     latitute: Number,
   },
   interests: [{
-    _id: { type: Schema.Types.ObjectId, ref: 'Interest' },
+    interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
     wantsToBeLeader: Boolean,
   }],
 })
