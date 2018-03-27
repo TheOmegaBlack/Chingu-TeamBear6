@@ -5,7 +5,7 @@ const interests = [
   { name: 'Coding' },
   { name: 'Basketball' },
   { name: 'Cooking' },
-  { name: 'LGBT' },
+  { name: 'Technology' },
 ]
 
 const populate = () => Interest.insertMany(interests)
