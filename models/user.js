@@ -15,6 +15,12 @@ const UserSchema = new Schema({
   interests: [{
     interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
     wantsToBeLeader: Boolean,
+    isAvailable: Boolean,
+    maxDistance: Number,
+    geolocation: {
+      longitude: Number,
+      latitude: Number,
+    },
   }],
 })
 

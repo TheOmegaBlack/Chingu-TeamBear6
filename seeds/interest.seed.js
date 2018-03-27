@@ -9,7 +9,7 @@ const interests = [
   { name: 'Technology' },
 ]
 
-// clear interest collection before instert to avoid duplicate
+// clear interests collection before insert to avoid duplicate
 const populate = () => Interest.remove({})
   .then(() => Interest.insertMany(interests))
 
