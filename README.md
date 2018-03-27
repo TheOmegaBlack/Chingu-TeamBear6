@@ -61,7 +61,7 @@ Do we need this section?
     * PUT - Updates an interest with the specified ID
     * DELETE - Delete an interest with the specified ID
   * `/interests/find/:name` (protected)
-    GET - Get a list of interest that match the specified name
+    * GET - Get a list of interest that match the specified name
 
 ## Usage
 
