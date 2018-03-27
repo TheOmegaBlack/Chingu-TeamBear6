@@ -35,9 +35,7 @@ function update(req, res, next) {
 }
 
 function updateProfile(req, res, next) {
-  req.user.set(req.body).save()
-    .then(() => res.json(req.user))
-    .catch(next)
+  res.json(req.user.set(req.body).save())
 }
 
 function getProfile(req, res, next) {
