@@ -35,7 +35,7 @@ function update(req, res, next) {
 }
 
 function updateProfile(req, res, next) {
-  res.json(req.user.set(req.body).save())
+  res.json(req.user.set(req.body))
 }
 
 function getProfile(req, res, next) {
