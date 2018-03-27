@@ -13,8 +13,14 @@ const UserSchema = new Schema({
     latitude: Number,
   },
   interests: [{
-    _id: { type: Schema.Types.ObjectId, ref: 'Interest' },
+    interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
     wantsToBeLeader: Boolean,
+    isAvailable: Boolean,
+    maxDistance: Number,
+    geolocation: {
+      longitude: Number,
+      latitude: Number,
+    },
   }],
 })
 

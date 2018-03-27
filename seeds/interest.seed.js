@@ -8,6 +8,8 @@ const interests = [
   { name: 'Technology' },
 ]
 
-const populate = () => Interest.insertMany(interests)
+// clear interests collection before insert to avoid duplicate
+const populate = () => Interest.remove({})
+  .then(() => Interest.insertMany(interests))
 
 module.exports = { populate }
