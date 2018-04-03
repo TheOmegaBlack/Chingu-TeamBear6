@@ -17,6 +17,7 @@ const UserSchema = new Schema({
     interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
     wantsToBeLeader: Boolean,
     isAvailable: Boolean,
+    // distance in meters
     maxDistance: Number,
     // coordinates [<longitude>, <latitude>]
     geolocation: {
