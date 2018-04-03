@@ -8,19 +8,25 @@ const UserSchema = new Schema({
   name: String,
   email: { type: String, required: true },
   password: { type: String, required: true },
+  // coordinates [<longitude>, <latitude>]
   geolocation: {
-    longitude: Number,
-    latitude: Number,
+    type: [Number],
+    index: '2dsphere',
   },
   interests: [{
     interest: { type: Schema.Types.ObjectId, ref: 'Interest' },
     wantsToBeLeader: Boolean,
     isAvailable: Boolean,
+    // distance in meters
     maxDistance: Number,
+    // coordinates [<longitude>, <latitude>]
     geolocation: {
-      longitude: Number,
-      latitude: Number,
+      type: [Number],
+      index: '2dsphere',
     },
+  }],
+  meetingsToAttend: [{
+    meeting: { type: Schema.Types.ObjectId, ref: 'Meeting' },
   }],
 })
 
