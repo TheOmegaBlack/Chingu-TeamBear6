@@ -8,9 +8,10 @@ const MeetingSchema = new Schema({
   leader: { type: Schema.Types.ObjectId, ref: 'User' },
   description: String,
   address: String,
+  // coordinates [<longitude>, <latitude>]
   geolocation: {
-    longitude: Number,
-    latitude: Number,
+    type: [Number],
+    index: '2dsphere',
   },
   contact: String,
 })
